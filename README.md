@@ -2,32 +2,43 @@
 
 This Terraform module creates an [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/).
 
-## Requirements and limitations
+## Requirements
 
+* [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.31
+
+## Terraform version compatibility
+
+| Module version | Terraform version |
+|----------------|-------------------|
+| >= 2.x.x       | 0.12.x            |
+| <  2.x.x       | 0.11.x            |
 
 ## Usage
 
 You can use this module by including it this way:
 ```hcl
-module "az-region" {
-  source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/regions.git?ref=vX.X.X"
+module "azure-region" {
+  source  = "claranet/regions/azurerm"
+  version = "x.x.x"
 
   azure_region = "${var.azure_region}"
 }
 
 module "rg" {
-  source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/rg.git?ref=vX.X.X"
+  source  = "claranet/rg/azurerm"
+  version = "x.x.x"
 
-  location     = "${module.az-region.location}"
+  location     = "${module.azure-region.location}"
   client_name  = "${var.client_name}"
   environment  = "${var.environment}"
   stack        = "${var.stack}"
 }
 
 module "acr" {
-  source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/acr.git?ref=vX.X.X"
+  source  = "claranet/acr/azurerm"
+  version = "x.x.x"
 
-  location     = "${module.az-region.location}"
+  location     = "${module.azure-region.location}"
   rg_name      = "${module.rg.resource_group_name}"
   sku          = "${var.registry_sku}"
   client_name  = "${var.client_name}"
@@ -66,4 +77,4 @@ module "acr" {
 
 ## Related documentation
 
-Terraform resource documentation: [https://www.terraform.io/docs/providers/azurerm/r/container_registry.html]
+Terraform resource documentation: [terraform.io/docs/providers/azurerm/r/container_registry.html](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)
