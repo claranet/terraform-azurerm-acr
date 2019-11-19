@@ -45,32 +45,30 @@ module "acr" {
 
   location     = "${module.azure-region.location}"
   rg_name      = "${module.rg.resource_group_name}"
-  sku          = "${var.registry_sku}"
+  sku          = "Standard"
+
   client_name  = "${var.client_name}"
   environment  = "${var.environment}"
   stack        = "${var.stack}"
-  custom_name  = "testacrcustom"
-
-  extra_tags   = "${merge(local.default_tags, local.acr_custom_tags)}"
 }
 
-## Inputs
+## Inputs 
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | admin\_enabled | Specifies whether the admin user is enabled. | string | `"false"` | no |
 | client\_name | Client name/account used in naming | string | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set | string | `""` | no |
-| environment | Project environment | string | n/a | yes | 
+| environment | Project environment | string | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | map | `<map>` | no |
 | location | Azure region to use | string | n/a | yes |
 | location\_short | Short string for Azure location | string | n/a | yes |
 | name\_prefix | Optional prefix for Azure Container Registry name | string | `""` | no |
 | resource\_group\_name | Name of the resource group | string | n/a | yes |
-| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | string | n/a | yes |
+| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | string | `"Standard"` | no |
 | stack | Project stack name | string | n/a | yes |
 
-## Outputs
+## Outputs 
 
 | Name | Description |
 |------|-------------|

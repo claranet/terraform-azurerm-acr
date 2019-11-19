@@ -21,4 +21,5 @@ output "admin_username" {
 output "admin_password" {
   description = "The Password associated with the Container Registry Admin account - if the admin account is enabled."
   value       = "${azurerm_container_registry.registry.admin_password}"
+  sensitive   = true
 }

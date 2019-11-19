@@ -37,6 +37,7 @@ variable "custom_name" {
 variable "sku" {
   description = "The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium."
   type        = "string"
+  default     = "Standard"
 }
 
 variable "admin_enabled" {
