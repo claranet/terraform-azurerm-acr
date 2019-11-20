@@ -57,3 +57,9 @@ variable "extra_tags" {
   type        = "map"
   default     = {}
 }
+
+variable "georeplication_locations" {
+  description = "A list of Azure locations where the container registry should be geo-replicated."
+  type        = "list"
+  default     = []
+}

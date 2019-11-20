@@ -63,6 +63,7 @@ module "acr" {
 | custom\_name | Custom Azure Container Registry name, generated if not set | string | `""` | no |
 | environment | Project environment | string | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | map | `<map>` | no |
+| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | list | `<list>` | no |
 | location | Azure region to use | string | n/a | yes |
 | location\_short | Short string for Azure location | string | n/a | yes |
 | name\_prefix | Optional prefix for Azure Container Registry name | string | `""` | no |
