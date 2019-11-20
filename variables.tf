@@ -48,8 +48,8 @@ variable "sku" {
 
 variable "admin_enabled" {
   description = "Specifies whether the admin user is enabled."
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
 }
 
 variable "extra_tags" {
