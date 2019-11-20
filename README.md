@@ -52,7 +52,7 @@ module "acr" {
   stack        = "${var.stack}"
 }
 
-## Inputs 
+## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
@@ -68,7 +68,7 @@ module "acr" {
 | sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | string | `"Standard"` | no |
 | stack | Project stack name | string | n/a | yes |
 
-## Outputs 
+## Outputs
 
 | Name | Description |
 |------|-------------|

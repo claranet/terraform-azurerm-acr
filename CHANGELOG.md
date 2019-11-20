@@ -1,4 +1,4 @@
 # v1.0.0 - Unreleased
 
-Unrealeased
+Added
   * AZ-129 First version
