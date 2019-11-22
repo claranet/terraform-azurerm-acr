@@ -72,11 +72,12 @@ module "acr" {
 
 | Name | Description |
 |------|-------------|
+| acr\_fqdn | The Container Registry FQDN. |
+| acr\_id | The Container Registry ID. |
+| acr\_name | The Container Registry name. |
 | admin\_password | The Password associated with the Container Registry Admin account - if the admin account is enabled. |
 | admin\_username | The Username associated with the Container Registry Admin account - if the admin account is enabled. |
-| id | The Container Registry ID. | 
 | login\_server | The URL that can be used to log into the container registry. |
-| name | The Container Registry name. |
 
 ## Related documentation
 
