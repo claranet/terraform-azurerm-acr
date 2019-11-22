@@ -7,7 +7,6 @@ resource "azurerm_container_registry" "registry" {
   sku           = var.sku
   admin_enabled = var.admin_enabled
 
-  # TF 0.11 hack to remove with HCL2
   georeplication_locations = var.georeplication_locations
 
   tags = merge(local.default_tags, var.extra_tags)

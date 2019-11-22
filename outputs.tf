@@ -15,7 +15,7 @@ output "login_server" {
 
 output "acr_fqdn" {
   description = "The Container Registry FQDN."
-  value       = "${azurerm_container_registry.registry.login_server}"
+  value       = azurerm_container_registry.registry.login_server
 }
 
 output "admin_username" {

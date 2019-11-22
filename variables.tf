@@ -1,26 +1,26 @@
 variable "resource_group_name" {
   description = "Name of the resource group"
-  type        = "string"
+  type        = string
 }
 
 variable "location" {
   description = "Azure region to use"
-  type        = "string"
+  type        = string
 }
 
 variable "location_short" {
   description = "Short string for Azure location"
-  type        = "string"
+  type        = string
 }
 
 variable "environment" {
   description = "Project environment"
-  type        = "string"
+  type        = string
 }
 
 variable "stack" {
   description = "Project stack name"
-  type        = "string"
+  type        = string
 }
 
 variable "client_name" {
@@ -36,7 +36,7 @@ variable "name_prefix" {
 
 variable "custom_name" {
   description = "Custom Azure Container Registry name, generated if not set"
-  type        = "string"
+  type        = string
   default     = ""
 }
 
@@ -60,6 +60,6 @@ variable "extra_tags" {
 
 variable "georeplication_locations" {
   description = "A list of Azure locations where the container registry should be geo-replicated."
-  type        = "list"
+  type        = list(string)
   default     = null
 }
