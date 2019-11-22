@@ -21,6 +21,7 @@ which set some terraform variables in the environment needed by this module.
 More details about variables set by the `terraform-wrapper` available in the [documentation](https://github.com/claranet/terraform-wrapper#environment).
 
 You can use this module by including it this way:
+
 ```hcl
 module "azure-region" {
   source  = "claranet/regions/azurerm"
@@ -51,6 +52,7 @@ module "acr" {
   environment  = "${var.environment}"
   stack        = "${var.stack}"
 }
+```
 
 ## Inputs
 
