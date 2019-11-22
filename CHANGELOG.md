@@ -1,4 +1,4 @@
-# v1.0.0 - Unreleased
+# v1.0.0 - 2019-11-22
 
 Added
-  * AZ-129 First version
+  * AZ-129: ACR First version
