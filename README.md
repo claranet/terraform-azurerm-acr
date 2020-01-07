@@ -27,30 +27,30 @@ module "azure-region" {
   source  = "claranet/regions/azurerm"
   version = "x.x.x"
 
-  azure_region = "${var.azure_region}"
+  azure_region = var.azure_region
 }
 
 module "rg" {
   source  = "claranet/rg/azurerm"
   version = "x.x.x"
 
-  location     = "${module.azure-region.location}"
-  client_name  = "${var.client_name}"
-  environment  = "${var.environment}"
-  stack        = "${var.stack}"
+  location     = module.azure-region.location
+  client_name  = var.client_name
+  environment  = var.environment
+  stack        = var.stack
 }
 
 module "acr" {
   source  = "claranet/acr/azurerm"
   version = "x.x.x"
 
-  location     = "${module.azure-region.location}"
-  rg_name      = "${module.rg.resource_group_name}"
+  location     = module.azure-region.location
+  rg_name      = module.rg.resource_group_name
   sku          = "Standard"
 
-  client_name  = "${var.client_name}"
-  environment  = "${var.environment}"
-  stack        = "${var.stack}"
+  client_name  = var.client_name
+  environment  = var.environment
+  stack        = var.stack
 }
 ```
 
@@ -62,8 +62,8 @@ module "acr" {
 | client\_name | Client name/account used in naming | string | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set | string | `""` | no |
 | environment | Project environment | string | n/a | yes |
-| extra\_tags | Additional tags to associate with your Azure Container Registry. | map | `<map>` | no |
-| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | list | `<list>` | no |
+| extra\_tags | Additional tags to associate with your Azure Container Registry. | map(string) | `<map>` | no |
+| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | list(string) | `<list>` | no |
 | location | Azure region to use | string | n/a | yes |
 | location\_short | Short string for Azure location | string | n/a | yes |
 | name\_prefix | Optional prefix for Azure Container Registry name | string | `""` | no |
