@@ -57,8 +57,6 @@ module "acr" {
 
 ## Inputs
 
-## Inputs
-
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |

@@ -1,5 +1,5 @@
 # Unreleased
-Fix
+Changed
   * README
 
 # v2.0.0 - 2020-01-31
