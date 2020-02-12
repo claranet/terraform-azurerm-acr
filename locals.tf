@@ -1,5 +1,5 @@
 locals {
-  acr_default_name_long = "${var.name_prefix}${var.stack}${var.client_name}${var.location_short}${var.environment}acr"
+  acr_default_name_long = replace("${var.name_prefix}${var.stack}${var.client_name}${var.location_short}${var.environment}acr", "/\\W/", "")
   acr_name = coalesce(
     var.custom_name,
     substr(
