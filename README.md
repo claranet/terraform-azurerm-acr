@@ -44,9 +44,10 @@ module "acr" {
   source  = "claranet/acr/azurerm"
   version = "x.x.x"
 
-  location     = module.azure-region.location
-  rg_name      = module.rg.resource_group_name
-  sku          = "Standard"
+  location            = module.azure-region.location
+  location_short      = module.azure-region.location_short
+  resource_group_name = module.rg.resource_group_name
+  sku                 = "Standard"
 
   client_name  = var.client_name
   environment  = var.environment
@@ -57,19 +58,19 @@ module "acr" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| admin\_enabled | Specifies whether the admin user is enabled. | string | `"false"` | no |
-| client\_name | Client name/account used in naming | string | n/a | yes |
-| custom\_name | Custom Azure Container Registry name, generated if not set | string | `""` | no |
-| environment | Project environment | string | n/a | yes |
-| extra\_tags | Additional tags to associate with your Azure Container Registry. | map(string) | `<map>` | no |
-| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | list(string) | `<list>` | no |
-| location | Azure region to use | string | n/a | yes |
-| location\_short | Short string for Azure location | string | n/a | yes |
-| name\_prefix | Optional prefix for Azure Container Registry name | string | `""` | no |
-| resource\_group\_name | Name of the resource group | string | n/a | yes |
-| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | string | `"Standard"` | no |
-| stack | Project stack name | string | n/a | yes |
+|------|-------------|------|---------|:-----:|
+| admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |
+| client\_name | Client name/account used in naming | `string` | n/a | yes |
+| custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
+| environment | Project environment | `string` | n/a | yes |
+| extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
+| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | `list(string)` | `"null"` | no |
+| location | Azure region to use | `string` | n/a | yes |
+| location\_short | Short string for Azure location | `string` | n/a | yes |
+| name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
+| resource\_group\_name | Name of the resource group | `string` | n/a | yes |
+| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
+| stack | Project stack name | `string` | n/a | yes |
 
 ## Outputs
 
