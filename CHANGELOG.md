@@ -1,6 +1,8 @@
-# Unreleased
+# v2.0.1 - 2020-02-12
+
 Changed
   * AZ-178: Update README
+  * AZ-179: Sanitize ACR resource name (remove invalid characters)
 
 # v2.0.0 - 2020-01-31
 
