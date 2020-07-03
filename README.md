@@ -3,16 +3,13 @@
 
 This Terraform module creates an [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/).
 
-## Requirements
+## Version compatibility
 
-* [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.31
-
-## Terraform version compatibility
-
-| Module version | Terraform version |
-|----------------|-------------------|
-| >= 2.x.x       | 0.12.x            |
-| <  2.x.x       | 0.11.x            |
+| Module version    | Terraform version | AzureRM version |
+|-------------------|-------------------|-----------------|
+| >= 3.x.x          | 0.12.x            | >= 2.0          |
+| >= 2.x.x, < 3.x.x | 0.12.x            | <  2.0          |
+| <  2.x.x          | 0.11.x            | <  2.0          |
 
 ## Usage
 
@@ -58,13 +55,13 @@ module "acr" {
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
-| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | `list(string)` | `"null"` | no |
+| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | `list(string)` | `null` | no |
 | location | Azure region to use | `string` | n/a | yes |
 | location\_short | Short string for Azure location | `string` | n/a | yes |
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
