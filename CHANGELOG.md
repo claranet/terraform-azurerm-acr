@@ -1,4 +1,4 @@
-# Unreleased
+# v3.1.0/v4.1.0 - 2020-10-26
 
 Changed
   * AZ-334: Force to lower the name of the ACR
