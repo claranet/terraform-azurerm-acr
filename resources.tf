@@ -1,3 +1,4 @@
+
 resource "azurerm_container_registry" "registry" {
   name = lower(local.acr_name)
 
@@ -7,7 +8,12 @@ resource "azurerm_container_registry" "registry" {
   sku           = var.sku
   admin_enabled = var.admin_enabled
 
-  georeplications = var.georeplication_locations
+  georeplication_locations = var.georeplication_locations
+
+  retention_policy {
+    enabled = var.retention_enabled
+    days    = var.retention_days
+  }
 
   tags = merge(local.default_tags, var.extra_tags)
 }

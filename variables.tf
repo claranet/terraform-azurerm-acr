@@ -63,3 +63,15 @@ variable "georeplication_locations" {
   type        = list(string)
   default     = null
 }
+
+variable "retention_enabled" {
+  description = "Specifies whether the retention is enabled."
+  type        = bool
+  default     = false
+}
+
+variable "retention_days" {
+  description = "Specifies whether the number of retention days."
+  type        = number
+  default     = 7
+}

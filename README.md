@@ -85,7 +85,8 @@ No modules.
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
 | resource\_group\_name | Name of the resource group | `string` | n/a | yes |
 | sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
-| stack | Project stack name | `string` | n/a | yes |
+| retention_enabled | "true" to enable retention | `bool` | `false` | no |
+| retention_days | The number of retention days | `number` | 7 | no |
 
 ## Outputs
 
