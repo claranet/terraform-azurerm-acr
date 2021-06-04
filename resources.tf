@@ -7,7 +7,7 @@ resource "azurerm_container_registry" "registry" {
   sku           = var.sku
   admin_enabled = var.admin_enabled
 
-  georeplication_locations = var.georeplication_locations
+  georeplications = var.georeplication_locations
 
   tags = merge(local.default_tags, var.extra_tags)
 }
