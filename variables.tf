@@ -75,3 +75,21 @@ variable "retention_days" {
   type        = number
   default     = 7
 }
+
+variable "trust_policy_enabled" {
+  description = "Specifies whether the trust policy is enabled."
+  type        = bool
+  default     = false
+}
+
+variable "network_rule_set" {
+  description = "Object with attributes: `default_action`, `ip_rules`"
+  default     = null
+
+  type = object({
+    default_action = string,
+    ip_rules       = list(string),
+  })
+}
+
+

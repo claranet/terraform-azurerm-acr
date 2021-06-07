@@ -83,10 +83,17 @@ No modules.
 | location | Azure region to use | `string` | n/a | yes |
 | location\_short | Short string for Azure location | `string` | n/a | yes |
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
-| resource\_group\_name | Name of the resource group | `string` | n/a | yes |
-| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
+|network\_rule\_set | Object with attributes: `default_action`, `ip_rules` | <pre>object({<br>    default_action             = string,<br>    ip_rules                   = list(string),<br>  })</pre> | `null`       |    no    |
 | retention_enabled | "true" to enable retention | `bool` | `false` | no |
 | retention_days | The number of retention days | `number` | 7 | no |
+| resource\_group\_name | Name of the resource group | `string` | n/a | yes |
+| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
+| trust_policy_enabled | "true" to enable trust policy | `bool` | `false` | no |
+
+
+
+
+
 
 ## Outputs
 
