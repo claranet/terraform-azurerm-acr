@@ -82,6 +82,10 @@ No modules.
 | georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | `list(string)` | `null` | no |
 | location | Azure region to use | `string` | n/a | yes |
 | location\_short | Short string for Azure location | `string` | n/a | yes |
+| logs\_categories | Log categories to send to destinations. | `list(string)` | `null`       |    no    |
+| logs\_destinations\_ids | List of destination resources Ids for logs diagnostics destination. Can be Storage Account, Log Analytics Workspace and Event Hub. No more than one of each can be set. Empty list to disable logging. | `list(string)` | n/a | yes |
+| logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` |    no    |
+| logs\_retention\_days | Number of days to keep logs on storage account | `number` | `30` |    no    |
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
 |network\_rule\_set | Object with attributes: `default_action`, `ip_rules` | <pre>object({<br>    default_action             = string,<br>    ip_rules                   = list(string),<br>  })</pre> | `null`       |    no    |
 | retention_enabled | "true" to enable retention | `bool` | `false` | no |
