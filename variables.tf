@@ -70,8 +70,8 @@ variable "images_retention_enabled" {
   default     = false
 }
 
-variable "retention_days" {
-  description = "Specifies whether the number of retention days."
+variable "images_retention_days" {
+  description = "Specifies the number of images retention days."
   type        = number
   default     = 7
 }
@@ -101,13 +101,13 @@ variable "logs_retention_days" {
 
 
 variable "trust_policy_enabled" {
-  description = "Specifies whether the trust policy is enabled."
+  description = "Specifies whether the trust policy is enabled (Premium only)."
   type        = bool
   default     = false
 }
 
 variable "network_rule_set" {
-  description = "Object with attributes: `default_action`, `ip_rules`"
+  description = "Network restrictions to apply on registry."
   default     = null
 
   type = object({
