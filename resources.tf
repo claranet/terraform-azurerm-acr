@@ -1,4 +1,3 @@
-
 resource "azurerm_container_registry" "registry" {
   name = lower(local.acr_name)
 
@@ -8,8 +7,8 @@ resource "azurerm_container_registry" "registry" {
   admin_enabled            = var.admin_enabled
   georeplication_locations = var.georeplication_locations
   retention_policy {
-    enabled = var.retention_enabled
-    days    = var.retention_days
+    enabled = var.images_retention_enabled
+    days    = var.images_retention_days
   }
   trust_policy {
     enabled = var.trust_policy_enabled

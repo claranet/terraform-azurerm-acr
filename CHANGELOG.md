@@ -1,5 +1,8 @@
 # Unreleased
 
+Added
+  * AZ-504: Adding diagnostic logging, trust policies & retention options.
+
 Changed
   * AZ-572: Revamp examples and improve CI
 
