@@ -64,8 +64,8 @@ variable "georeplication_locations" {
   default     = null
 }
 
-variable "retention_enabled" {
-  description = "Specifies whether the retention is enabled."
+variable "images_retention_enabled" {
+  description = "Specifies whether images retention is enabled (Premium only)."
   type        = bool
   default     = false
 }
