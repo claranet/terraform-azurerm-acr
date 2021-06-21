@@ -73,7 +73,7 @@ variable "images_retention_enabled" {
 variable "images_retention_days" {
   description = "Specifies the number of images retention days."
   type        = number
-  default     = 7
+  default     = 90
 }
 
 variable "logs_destinations_ids" {
@@ -106,14 +106,10 @@ variable "trust_policy_enabled" {
   default     = false
 }
 
-variable "network_rule_set" {
-  description = "Network restrictions to apply on registry."
-  default     = null
-
-  type = object({
-    default_action = string,
-    ip_rules       = list(string),
-  })
+variable "allowed_cidrs" {
+  description = "List of CIDRs to allow on the registry"
+  default     = []
+  type        = list(string)
 }
 
 

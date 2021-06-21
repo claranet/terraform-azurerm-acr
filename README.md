@@ -75,11 +75,14 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |
+| allowed\_cidrs | This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's | <pre>list(string)</pre> | `[]`       |    no    |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
 | georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. | `list(string)` | `null` | no |
+| images\_retention\_enabled | Specifies whether images retention is enabled (Premium only). | `bool` | `false` | no |
+| images\_retention\_days | Specifies the number of images retention days. | `number` | 90 | no |
 | location | Azure region to use | `string` | n/a | yes |
 | location\_short | Short string for Azure location | `string` | n/a | yes |
 | logs\_categories | Log categories to send to destinations. | `list(string)` | `null`       |    no    |
@@ -87,16 +90,9 @@ No modules.
 | logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` |    no    |
 | logs\_retention\_days | Number of days to keep logs on storage account | `number` | `30` |    no    |
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
-|network\_rule\_set | Object with attributes: `default_action`, `ip_rules` | <pre>object({<br>    default_action             = string,<br>    ip_rules                   = list(string),<br>  })</pre> | `null`       |    no    |
-| retention_enabled | "true" to enable retention | `bool` | `false` | no |
-| retention_days | The number of retention days | `number` | 7 | no |
 | resource\_group\_name | Name of the resource group | `string` | n/a | yes |
 | sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
 | trust_policy_enabled | "true" to enable trust policy | `bool` | `false` | no |
-
-
-
-
 
 
 ## Outputs
