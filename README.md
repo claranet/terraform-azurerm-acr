@@ -6,7 +6,8 @@ This Terraform module creates an [Azure Container Registry](https://docs.microso
 ## Version compatibility
 
 | Module version | Terraform version | AzureRM version |
-|----------------|-------------------| --------------- |
+| -------------- | ----------------- | --------------- |
+| >= 5.x.x       | 0.15.x & 1.0.x    | >= 2.0          |
 | >= 4.x.x       | 0.13.x            | >= 2.0          |
 | >= 3.x.x       | 0.12.x            | >= 2.0          |
 | >= 2.x.x       | 0.12.x            | < 2.0           |
@@ -53,6 +54,23 @@ module "acr" {
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | >= 1.31 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_container_registry.registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry) | resource |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -80,7 +98,4 @@ module "acr" {
 | admin\_password | The Password associated with the Container Registry Admin account - if the admin account is enabled. |
 | admin\_username | The Username associated with the Container Registry Admin account - if the admin account is enabled. |
 | login\_server | The URL that can be used to log into the container registry. |
-
-## Related documentation
-
-Terraform resource documentation: [terraform.io/docs/providers/azurerm/r/container_registry.html](https://www.terraform.io/docs/providers/azurerm/r/container_registry.html)
+<!-- END_TF_DOCS -->
