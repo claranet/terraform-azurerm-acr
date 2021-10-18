@@ -12,6 +12,9 @@ Added
 Changed
   * AZ-572: Revamp examples and improve CI
 
+Fixed
+  * AZ-129: Rename `georeplication_locations` (deprecated) parameter to `georeplication`
+
 # v3.1.1/v4.1.1 - 2021-08-27
 
 Changed
