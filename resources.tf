@@ -21,11 +21,20 @@ resource "azurerm_container_registry" "registry" {
 
     content {
       default_action = "Deny"
+
       dynamic "ip_rule" {
         for_each = var.allowed_cidrs
         content {
           action   = "Allow"
           ip_range = ip_rule.value
+        }
+      }
+
+      dynamic "virtual_network" {
+        for_each = var.allowed_subnets
+        content {
+          action    = "Allow"
+          subnet_id = virtual_network.value
         }
       }
     }

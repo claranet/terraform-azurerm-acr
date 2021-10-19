@@ -2,6 +2,7 @@
 
 Added
   * AZ-504: Adding diagnostic logging, trust policies & retention options.
+  * AZ-504: Adding Network rules (ip_rules and authorized subnets)
 
 Changed
   * AZ-572: Revamp examples and improve CI

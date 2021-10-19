@@ -98,6 +98,7 @@ module "acr" {
 |------|-------------|------|---------|:--------:|
 | admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |
 | allowed\_cidrs | List of CIDRs to allow on the registry | `list(string)` | `[]` | no |
+| allowed\_subnets | List of VNet/Subnet IDs to allow on the registry | `list(string)` | `[]` | no |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
 | environment | Project environment | `string` | n/a | yes |

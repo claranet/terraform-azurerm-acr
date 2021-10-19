@@ -112,4 +112,8 @@ variable "allowed_cidrs" {
   type        = list(string)
 }
 
-
+variable "allowed_subnets" {
+  description = "List of VNet/Subnet IDs to allow on the registry"
+  default     = []
+  type        = list(string)
+}
