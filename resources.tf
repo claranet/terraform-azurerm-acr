@@ -17,7 +17,7 @@ resource "azurerm_container_registry" "registry" {
   }
 
   dynamic "network_rule_set" {
-    for_each = length(var.allowed_cidrs) > 0 ? ["_"] : []
+    for_each = length(concat(var.allowed_cidrs, var.allowed_subnets)) > 0 ? ["enabled"] : []
 
     content {
       default_action = "Deny"
