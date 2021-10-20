@@ -1,14 +1,44 @@
 resource "azurerm_container_registry" "registry" {
-  name = lower(local.acr_name)
+  name = local.acr_name
 
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  sku           = var.sku
-  admin_enabled = var.admin_enabled
-
+  location                 = var.location
+  resource_group_name      = var.resource_group_name
+  sku                      = var.sku
+  admin_enabled            = var.admin_enabled
   georeplication_locations = var.georeplication_locations
+
+  retention_policy {
+    enabled = var.images_retention_enabled
+    days    = var.images_retention_days
+  }
+
+  trust_policy {
+    enabled = var.trust_policy_enabled
+  }
+
+  dynamic "network_rule_set" {
+    for_each = length(concat(var.allowed_cidrs, var.allowed_subnets)) > 0 ? ["enabled"] : []
+
+    content {
+      default_action = "Deny"
+
+      dynamic "ip_rule" {
+        for_each = var.allowed_cidrs
+        content {
+          action   = "Allow"
+          ip_range = ip_rule.value
+        }
+      }
+
+      dynamic "virtual_network" {
+        for_each = var.allowed_subnets
+        content {
+          action    = "Allow"
+          subnet_id = virtual_network.value
+        }
+      }
+    }
+  }
 
   tags = merge(local.default_tags, var.extra_tags)
 }
-

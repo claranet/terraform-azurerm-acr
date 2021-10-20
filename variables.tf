@@ -63,3 +63,57 @@ variable "georeplication_locations" {
   type        = list(string)
   default     = null
 }
+
+variable "images_retention_enabled" {
+  description = "Specifies whether images retention is enabled (Premium only)."
+  type        = bool
+  default     = false
+}
+
+variable "images_retention_days" {
+  description = "Specifies the number of images retention days."
+  type        = number
+  default     = 90
+}
+
+variable "logs_destinations_ids" {
+  type        = list(string)
+  description = "List of destination resources Ids for logs diagnostics destination. Can be Storage Account, Log Analytics Workspace and Event Hub. No more than one of each can be set. Empty list to disable logging."
+}
+
+variable "logs_categories" {
+  type        = list(string)
+  description = "Log categories to send to destinations."
+  default     = null
+}
+
+variable "logs_metrics_categories" {
+  type        = list(string)
+  description = "Metrics categories to send to destinations."
+  default     = null
+}
+
+variable "logs_retention_days" {
+  type        = number
+  description = "Number of days to keep logs on storage account"
+  default     = 30
+}
+
+
+variable "trust_policy_enabled" {
+  description = "Specifies whether the trust policy is enabled (Premium only)."
+  type        = bool
+  default     = false
+}
+
+variable "allowed_cidrs" {
+  description = "List of CIDRs to allow on the registry"
+  default     = []
+  type        = list(string)
+}
+
+variable "allowed_subnets" {
+  description = "List of VNet/Subnet IDs to allow on the registry"
+  default     = []
+  type        = list(string)
+}
