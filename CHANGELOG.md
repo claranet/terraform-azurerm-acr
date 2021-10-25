@@ -1,3 +1,8 @@
+# Unreleased
+
+Fixed
+  * AZ-589: Avoid plan drift when specifying categories
+
 # v4.2.0 - 2021-10-20
 
 Added
