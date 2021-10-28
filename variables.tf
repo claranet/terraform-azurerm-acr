@@ -59,9 +59,21 @@ variable "extra_tags" {
 }
 
 variable "georeplication_locations" {
-  description = "A list of Azure locations where the container registry should be geo-replicated."
-  type        = list(string)
-  default     = null
+  description = <<DESC
+  A list of Azure locations where the container registry should be geo-replicated.
+
+  list(object({
+    location                = string
+    zone_redundancy_enabled = bool
+    tags                    = map(any) 
+  }))
+DESC
+  type = list(object({
+    location                = string
+    zone_redundancy_enabled = bool
+    tags                    = map(any)
+  }))
+  default = []
 }
 
 variable "images_retention_enabled" {
