@@ -2,6 +2,7 @@
 
 Fixed
   * AZ-589: Avoid plan drift when specifying categories
+  * AZ-590: Rename `georeplication_locations` (deprecated) parameter to `georeplication` for `azurerm_container_registry` resource
 
 # v4.2.0 - 2021-10-20
 
@@ -11,9 +12,6 @@ Added
 
 Changed
   * AZ-572: Revamp examples and improve CI
-
-Fixed
-  * AZ-129: Rename `georeplication_locations` (deprecated) parameter to `georeplication`
 
 # v3.1.1/v4.1.1 - 2021-08-27
 
