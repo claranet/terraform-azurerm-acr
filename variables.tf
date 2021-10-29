@@ -71,7 +71,7 @@ DESC
   type = list(object({
     location                = string
     zone_redundancy_enabled = bool
-    tags                    = map(any)
+    tags                    = map(string)
   }))
   default = []
 }

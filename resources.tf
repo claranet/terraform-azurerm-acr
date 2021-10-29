@@ -8,7 +8,7 @@ resource "azurerm_container_registry" "registry" {
 
 
   dynamic "retention_policy" {
-    for_each = var.images_retention_enabled && var.sku == "Premium" ? ["_"] : []
+    for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled_"] : []
 
     content {
       enabled = var.images_retention_enabled
@@ -17,7 +17,7 @@ resource "azurerm_container_registry" "registry" {
   }
 
   dynamic "trust_policy" {
-    for_each = var.trust_policy_enabled && var.sku == "Premium" ? ["_"] : []
+    for_each = var.trust_policy_enabled && var.sku == "Premium" ? ["enabled"] : []
 
     content {
       enabled = var.trust_policy_enabled
@@ -25,7 +25,7 @@ resource "azurerm_container_registry" "registry" {
   }
 
   dynamic "georeplications" {
-    for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : null
+    for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : []
 
     content {
       location                = georeplications.value.location
