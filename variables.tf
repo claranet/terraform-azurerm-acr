@@ -60,8 +60,8 @@ variable "extra_tags" {
 
 variable "georeplication_locations" {
   description = <<DESC
-  A list of Azure locations where the container registry should be geo-replicated.
-
+  A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.
+  
   list(object({
     location                = string
     zone_redundancy_enabled = bool

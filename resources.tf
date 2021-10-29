@@ -8,7 +8,7 @@ resource "azurerm_container_registry" "registry" {
 
 
   dynamic "retention_policy" {
-    for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled_"] : []
+    for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled"] : []
 
     content {
       enabled = var.images_retention_enabled

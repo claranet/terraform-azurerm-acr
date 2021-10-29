@@ -3,6 +3,8 @@
 Fixed
   * AZ-589: Avoid plan drift when specifying categories
   * AZ-590: Rename `georeplication_locations` (deprecated) parameter to `georeplication` for `azurerm_container_registry` resource
+  * AZ-590: Allow to enable trust policy and configure a retention policy only if Acr Sku is `Premium`
+  * AZ-590: Update Azurerm Provider version (minimum 2.64)
 
 # v4.2.0 - 2021-10-20
 

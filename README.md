@@ -103,7 +103,7 @@ module "acr" {
 | custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
 | environment | Project environment | `string` | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
-| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated.<br><br>  list(object({<br>    location                = string<br>    zone\_redundancy\_enabled = bool<br>    tags                    = map(any) <br>  })) | <pre>list(object({<br>    location                = string<br>    zone_redundancy_enabled = bool<br>    tags                    = map(string)<br>  }))</pre> | `[]` | no |
+| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.<br><br>  list(object({<br>    location                = string<br>    zone\_redundancy\_enabled = bool<br>    tags                    = map(any) <br>  })) | <pre>list(object({<br>    location                = string<br>    zone_redundancy_enabled = bool<br>    tags                    = map(string)<br>  }))</pre> | `[]` | no |
 | images\_retention\_days | Specifies the number of images retention days. | `number` | `90` | no |
 | images\_retention\_enabled | Specifies whether images retention is enabled (Premium only). | `bool` | `false` | no |
 | location | Azure region to use | `string` | n/a | yes |
