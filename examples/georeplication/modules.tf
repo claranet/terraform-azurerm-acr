@@ -15,22 +15,16 @@ module "rg" {
   stack       = var.stack
 }
 
-module "run-common" {
-  source  = "claranet/run-common/azurerm"
+module "logs" {
+  source  = "claranet/run-common/azurerm//modules/logs"
   version = "x.x.x"
 
-  client_name    = var.client_name
-  location       = module.azure_region.location
-  location_short = module.azure_region.location_short
-  environment    = var.environment
-
+  client_name         = var.client_name
+  environment         = var.environment
   stack               = var.stack
+  location            = module.azure_region.location
+  location_short      = module.azure_region.location_short
   resource_group_name = module.rg.resource_group_name
-
-  tenant_id = var.azure_tenant_id
-
-
-
 }
 
 module "acr" {
@@ -46,8 +40,8 @@ module "acr" {
   sku                 = "Premium"
 
   logs_destinations_ids = [
-    module.run-common.logs_storage_account_id,
-    module.run-common.log_analytics_workspace_id
+    module.logs.logs_storage_account_id,
+    module.logs.log_analytics_workspace_id
   ]
 
   georeplication_locations = [
