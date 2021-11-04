@@ -61,19 +61,13 @@ variable "extra_tags" {
 variable "georeplication_locations" {
   description = <<DESC
   A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.
-  
-  list(object({
-    location                = string
-    zone_redundancy_enabled = bool
-    tags                    = map(any) 
-  }))
-DESC
-  type = list(object({
+  Supported properties are :
     location                = string
     zone_redundancy_enabled = bool
     tags                    = map(string)
-  }))
-  default = []
+DESC
+  type        = list(any)
+  default     = []
 }
 
 variable "images_retention_enabled" {
@@ -115,7 +109,7 @@ variable "logs_retention_days" {
 variable "trust_policy_enabled" {
   description = "Specifies whether the trust policy is enabled (Premium only)."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "allowed_cidrs" {

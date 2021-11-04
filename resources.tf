@@ -28,9 +28,9 @@ resource "azurerm_container_registry" "registry" {
     for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : []
 
     content {
-      location                = georeplications.value.location
-      zone_redundancy_enabled = georeplications.value.zone_redundancy_enabled
-      tags                    = georeplications.value.tags
+      location                = try(georeplications.value.location, georeplications.value)
+      zone_redundancy_enabled = try(georeplications.value.zone_redundancy_enabled, null)
+      tags                    = try(georeplications.value.tags, null)
     }
 
   }
