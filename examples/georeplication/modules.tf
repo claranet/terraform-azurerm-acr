@@ -66,3 +66,33 @@ module "acr" {
   }
 
 }
+
+module "acr_extra" {
+  source  = "claranet/acr/azurerm"
+  version = "x.x.x"
+
+  client_name         = var.client_name
+  environment         = var.environment
+  stack               = var.stack
+  location            = module.azure_region.location
+  location_short      = module.azure_region.location_short
+  resource_group_name = module.rg.resource_group_name
+
+  sku         = "Premium"
+  name_prefix = "extra"
+
+  logs_destinations_ids = [
+    module.logs.logs_storage_account_id,
+    module.logs.log_analytics_workspace_id
+  ]
+
+  georeplication_locations = [
+    "francecentral",
+    "northeurope",
+    "westeurope",
+  ]
+
+  extra_tags = {
+    foo = "bar"
+  }
+}
