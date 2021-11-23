@@ -45,20 +45,9 @@ module "acr" {
   ]
 
   georeplication_locations = [
-    {
-      location                = "francecentral"
-      zone_redundancy_enabled = true
-      tags = {
-        foo = "bar"
-      }
-    },
-    {
-      location                = "northeurope"
-      zone_redundancy_enabled = false
-      tags = {
-        foo = "bar"
-      }
-    }
+    "francecentral",
+    "northeurope",
+    "westeurope",
   ]
 
   extra_tags = {
@@ -87,9 +76,20 @@ module "acr_extra" {
   ]
 
   georeplication_locations = [
-    "francecentral",
-    "northeurope",
-    "westeurope",
+    {
+      location                = "francecentral"
+      zone_redundancy_enabled = true
+      tags = {
+        foo = "bar"
+      }
+    },
+    {
+      location                = "northeurope"
+      zone_redundancy_enabled = false
+      tags = {
+        foo = "bar"
+      }
+    }
   ]
 
   extra_tags = {
