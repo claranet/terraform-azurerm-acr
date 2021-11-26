@@ -83,6 +83,11 @@ variable "images_retention_days" {
   default     = 90
 }
 
+variable "network_rule_bypass_option" {
+  description = "Specifies the number of images retention days."
+  type        = string
+  default     = "AzureServices"
+}
 
 variable "trust_policy_enabled" {
   description = "Specifies whether the trust policy is enabled (Premium only)."
