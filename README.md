@@ -78,7 +78,7 @@ module "acr" {
 
 | Name | Version |
 |------|---------|
-| azurerm | >= 2.64 |
+| azurerm | >= 2.86 |
 
 ## Modules
 
