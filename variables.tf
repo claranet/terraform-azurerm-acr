@@ -83,10 +83,10 @@ variable "images_retention_days" {
   default     = 90
 }
 
-variable "network_rule_bypass_option" {
+variable "azure_services_bypass_allowed" {
   description = "Whether to allow trusted Azure services to access a network restricted Container Registry"
-  type        = string
-  default     = "AzureServices"
+  type        = bool
+  default     = false
 }
 
 variable "trust_policy_enabled" {

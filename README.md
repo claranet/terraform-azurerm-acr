@@ -99,6 +99,7 @@ module "acr" {
 | admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |
 | allowed\_cidrs | List of CIDRs to allow on the registry | `list(string)` | `[]` | no |
 | allowed\_subnets | List of VNet/Subnet IDs to allow on the registry | `list(string)` | `[]` | no |
+| azure\_services\_bypass\_allowed | Whether to allow trusted Azure services to access a network restricted Container Registry | `bool` | `false` | no |
 | client\_name | Client name/account used in naming | `string` | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
 | environment | Project environment | `string` | n/a | yes |
@@ -113,7 +114,6 @@ module "acr" {
 | logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` | no |
 | logs\_retention\_days | Number of days to keep logs on storage account | `number` | `30` | no |
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
-| network\_rule\_bypass\_option | Whether to allow trusted Azure services to access a network restricted Container Registry | `string` | `"AzureServices"` | no |
 | resource\_group\_name | Name of the resource group | `string` | n/a | yes |
 | sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
 | stack | Project stack name | `string` | n/a | yes |

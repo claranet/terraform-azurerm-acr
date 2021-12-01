@@ -1,7 +1,7 @@
 # unreleased
 
 Added
-  * AZ-620: Add `network_rule_bypass_option` parameter.
+  * AZ-620: Add `azure_services_bypass_allowed` input variable to configure `network_rule_bypass_option` parameter.
   
 Changed
   * AZ-620: Update Azurerm Provider version (minimum 2.86)
