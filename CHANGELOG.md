@@ -1,3 +1,8 @@
+# unreleased
+
+Added
+  * AZ-620: Add `network_rule_bypass_option` parameter.
+
 # v4.3.0 - 2021-11-24
 
 Fixed

@@ -84,7 +84,7 @@ variable "images_retention_days" {
 }
 
 variable "network_rule_bypass_option" {
-  description = "Specifies the number of images retention days."
+  description = "Whether to allow trusted Azure services to access a network restricted Container Registry"
   type        = string
   default     = "AzureServices"
 }

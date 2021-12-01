@@ -113,6 +113,7 @@ module "acr" {
 | logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` | no |
 | logs\_retention\_days | Number of days to keep logs on storage account | `number` | `30` | no |
 | name\_prefix | Optional prefix for Azure Container Registry name | `string` | `""` | no |
+| network\_rule\_bypass\_option | Whether to allow trusted Azure services to access a network restricted Container Registry | `string` | `"AzureServices"` | no |
 | resource\_group\_name | Name of the resource group | `string` | n/a | yes |
 | sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
 | stack | Project stack name | `string` | n/a | yes |
