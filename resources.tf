@@ -6,6 +6,7 @@ resource "azurerm_container_registry" "registry" {
   sku                 = var.sku
   admin_enabled       = var.admin_enabled
 
+  network_rule_bypass_option = var.azure_services_bypass_allowed ? "AzureServices" : "None"
 
   dynamic "retention_policy" {
     for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled"] : []
