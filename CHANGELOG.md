@@ -1,4 +1,4 @@
-# unreleased
+# v4.4.0 - 2021-12-07
 
 Added
   * AZ-620: Add `azure_services_bypass_allowed` input variable to configure `network_rule_bypass_option` parameter.
