@@ -1,8 +1,13 @@
+# Unreleased
+
+Added
+  * AZ-615: Add an option to enable or disable default tags
+
 # v4.4.0 - 2021-12-07
 
 Added
   * AZ-620: Add `azure_services_bypass_allowed` input variable to configure `network_rule_bypass_option` parameter.
-  
+
 Changed
   * AZ-620: Update Azurerm Provider version (minimum 2.86)
 
@@ -12,7 +17,7 @@ Fixed
   * AZ-589: Avoid plan drift when specifying categories
   * AZ-590: Rename `georeplication_locations` (deprecated) parameter to `georeplications` for `azurerm_container_registry` resource
   * AZ-590: Allow to enable trust policy and configure a retention policy only if Acr Sku is `Premium`
-  
+
 Changed
   * AZ-590: Update Azurerm Provider version (minimum 2.64)
 

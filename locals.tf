@@ -8,10 +8,4 @@ locals {
       length(local.acr_default_name_long) > 50 ? 49 : -1,
     ),
   ))
-
-  default_tags = {
-    env   = var.environment
-    stack = var.stack
-  }
 }
-
