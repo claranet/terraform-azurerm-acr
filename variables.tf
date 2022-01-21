@@ -28,18 +28,6 @@ variable "client_name" {
   type        = string
 }
 
-variable "name_prefix" {
-  description = "Optional prefix for Azure Container Registry name"
-  type        = string
-  default     = ""
-}
-
-variable "custom_name" {
-  description = "Custom Azure Container Registry name, generated if not set"
-  type        = string
-  default     = ""
-}
-
 variable "sku" {
   description = "The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium."
   type        = string
