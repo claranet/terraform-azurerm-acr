@@ -52,12 +52,6 @@ variable "admin_enabled" {
   default     = false
 }
 
-variable "extra_tags" {
-  description = "Additional tags to associate with your Azure Container Registry."
-  type        = map(string)
-  default     = {}
-}
-
 variable "georeplication_locations" {
   description = <<DESC
   A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.
