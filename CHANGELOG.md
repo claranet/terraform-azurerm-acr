@@ -1,3 +1,8 @@
+# Unreleased
+
+Changed
+  * AZ-696 : Apply lower function only for ACR azurecaf_name
+
 # v5.0.0 - 2022-01-21
 
 Breaking
