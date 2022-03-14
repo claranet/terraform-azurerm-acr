@@ -85,8 +85,9 @@ module "acr_extra" {
       }
     },
     {
-      location                = "northeurope"
-      zone_redundancy_enabled = false
+      location                  = "northeurope"
+      zone_redundancy_enabled   = false
+      regional_endpoint_enabled = true
       tags = {
         foo = "bar"
       }
