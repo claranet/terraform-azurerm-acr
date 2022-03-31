@@ -1,4 +1,4 @@
-# Unreleased
+# v5.1.0 - 2022-03-31
 
 Added
   * AZ-697: Add `regional_endpoint_enabled` option in `georeplications` block
