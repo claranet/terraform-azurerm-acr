@@ -77,15 +77,17 @@ module "acr_extra" {
 
   georeplication_locations = [
     {
-      location                = "francecentral"
-      zone_redundancy_enabled = true
+      location                  = "francecentral"
+      zone_redundancy_enabled   = true
+      regional_endpoint_enabled = true
       tags = {
         foo = "bar"
       }
     },
     {
-      location                = "northeurope"
-      zone_redundancy_enabled = false
+      location                  = "northeurope"
+      zone_redundancy_enabled   = false
+      regional_endpoint_enabled = true
       tags = {
         foo = "bar"
       }

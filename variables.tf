@@ -44,12 +44,13 @@ variable "georeplication_locations" {
   description = <<DESC
   A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.
   Supported properties are:
-    location                = string
-    zone_redundancy_enabled = bool
-    tags                    = map(string)
+    location                  = string
+    zone_redundancy_enabled   = bool
+    regional_endpoint_enabled = bool
+    tags                      = map(string)
   or this can be a list of `string` (each element is a location)
 DESC
-  type        = list(any)
+  type        = any
   default     = []
 }
 
