@@ -9,6 +9,8 @@ resource "azurerm_container_registry" "registry" {
   public_network_access_enabled = var.public_network_access_enabled
   network_rule_bypass_option    = var.azure_services_bypass_allowed ? "AzureServices" : "None"
 
+  data_endpoint_enabled = var.data_endpoint_enabled
+
   dynamic "retention_policy" {
     for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled"] : []
 
@@ -62,4 +64,12 @@ resource "azurerm_container_registry" "registry" {
   }
 
   tags = merge(local.default_tags, var.extra_tags)
+
+
+  lifecycle {
+    precondition {
+      condition     = !var.data_endpoint_enabled || var.sku == "Premium"
+      error_message = "Premium SKU is mandatory to enable the data endpoints."
+    }
+  }
 }

@@ -1,3 +1,6 @@
+# Unreleased
+  * AZ-885: Add `data_endpoint_enabled` option for dedicated endpoints.
+
 # v6.1.0 - 2022-11-30
 
 Added
