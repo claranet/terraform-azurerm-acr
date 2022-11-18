@@ -1,4 +1,4 @@
-resource "azurecaf_name" "acr" {
+data "azurecaf_name" "acr" {
   name          = var.stack
   resource_type = "azurerm_container_registry"
   prefixes      = var.name_prefix == "" ? null : [local.name_prefix]
