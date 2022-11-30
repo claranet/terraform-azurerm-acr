@@ -6,7 +6,8 @@ resource "azurerm_container_registry" "registry" {
   sku                 = var.sku
   admin_enabled       = var.admin_enabled
 
-  network_rule_bypass_option = var.azure_services_bypass_allowed ? "AzureServices" : "None"
+  public_network_access_enabled = var.public_network_access_enabled
+  network_rule_bypass_option    = var.azure_services_bypass_allowed ? "AzureServices" : "None"
 
   dynamic "retention_policy" {
     for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled"] : []
@@ -34,7 +35,6 @@ resource "azurerm_container_registry" "registry" {
       regional_endpoint_enabled = try(georeplications.value.regional_endpoint_enabled, null)
       tags                      = try(georeplications.value.tags, null)
     }
-
   }
 
   dynamic "network_rule_set" {

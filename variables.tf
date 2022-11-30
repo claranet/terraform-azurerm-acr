@@ -1,48 +1,48 @@
 variable "resource_group_name" {
-  description = "Name of the resource group"
+  description = "Name of the resource group."
   type        = string
 }
 
 variable "location" {
-  description = "Azure region to use"
+  description = "Azure region to use."
   type        = string
 }
 
 variable "location_short" {
-  description = "Short string for Azure location"
+  description = "Short string for Azure location."
   type        = string
 }
 
 variable "environment" {
-  description = "Project environment"
+  description = "Project environment."
   type        = string
 }
 
 variable "stack" {
-  description = "Project stack name"
+  description = "Project stack name."
   type        = string
 }
 
 variable "client_name" {
-  description = "Client name/account used in naming"
+  description = "Client name/account used in naming."
   type        = string
 }
 
 variable "sku" {
-  description = "The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium."
+  description = "The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`."
   type        = string
   default     = "Standard"
 }
 
 variable "admin_enabled" {
-  description = "Specifies whether the admin user is enabled."
+  description = "Whether the admin user is enabled."
   type        = bool
   default     = false
 }
 
 variable "georeplication_locations" {
   description = <<DESC
-  A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.
+  A list of Azure locations where the Ccontainer Registry should be geo-replicated. Only activated on Premium SKU.
   Supported properties are:
     location                  = string
     zone_redundancy_enabled   = bool
@@ -67,7 +67,7 @@ variable "images_retention_days" {
 }
 
 variable "azure_services_bypass_allowed" {
-  description = "Whether to allow trusted Azure services to access a network restricted Container Registry"
+  description = "Whether to allow trusted Azure services to access a network restricted Container Registry."
   type        = bool
   default     = false
 }
@@ -79,13 +79,19 @@ variable "trust_policy_enabled" {
 }
 
 variable "allowed_cidrs" {
-  description = "List of CIDRs to allow on the registry"
+  description = "List of CIDRs to allow on the registry."
   default     = []
   type        = list(string)
 }
 
 variable "allowed_subnets" {
-  description = "List of VNet/Subnet IDs to allow on the registry"
+  description = "List of VNet/Subnet IDs to allow on the registry."
   default     = []
   type        = list(string)
+}
+
+variable "public_network_access_enabled" {
+  description = "Whether the Container Registry is accessible publicly."
+  type        = bool
+  default     = true
 }
