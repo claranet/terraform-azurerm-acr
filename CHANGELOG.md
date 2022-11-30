@@ -1,4 +1,4 @@
-# Unreleased
+# v6.1.0 - 2022-11-30
 
 Added
   * AZ-921: Add `public_network_access_enabled` variable
