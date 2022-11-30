@@ -99,30 +99,31 @@ module "acr" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `false` | no |
-| allowed\_cidrs | List of CIDRs to allow on the registry | `list(string)` | `[]` | no |
-| allowed\_subnets | List of VNet/Subnet IDs to allow on the registry | `list(string)` | `[]` | no |
-| azure\_services\_bypass\_allowed | Whether to allow trusted Azure services to access a network restricted Container Registry | `bool` | `false` | no |
-| client\_name | Client name/account used in naming | `string` | n/a | yes |
+| admin\_enabled | Whether the admin user is enabled. | `bool` | `false` | no |
+| allowed\_cidrs | List of CIDRs to allow on the registry. | `list(string)` | `[]` | no |
+| allowed\_subnets | List of VNet/Subnet IDs to allow on the registry. | `list(string)` | `[]` | no |
+| azure\_services\_bypass\_allowed | Whether to allow trusted Azure services to access a network restricted Container Registry. | `bool` | `false` | no |
+| client\_name | Client name/account used in naming. | `string` | n/a | yes |
 | custom\_diagnostic\_settings\_name | Custom name of the diagnostics settings, name will be 'default' if not set. | `string` | `"default"` | no |
 | custom\_name | Custom Azure Container Registry name, generated if not set | `string` | `""` | no |
 | default\_tags\_enabled | Option to enable or disable default tags. | `bool` | `true` | no |
-| environment | Project environment | `string` | n/a | yes |
+| environment | Project environment. | `string` | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
-| georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. Only activated on Premium SKU.<br>  Supported properties are:<br>    location                  = string<br>    zone\_redundancy\_enabled   = bool<br>    regional\_endpoint\_enabled = bool<br>    tags                      = map(string)<br>  or this can be a list of `string` (each element is a location) | `any` | `[]` | no |
+| georeplication\_locations | A list of Azure locations where the Ccontainer Registry should be geo-replicated. Only activated on Premium SKU.<br>  Supported properties are:<br>    location                  = string<br>    zone\_redundancy\_enabled   = bool<br>    regional\_endpoint\_enabled = bool<br>    tags                      = map(string)<br>  or this can be a list of `string` (each element is a location) | `any` | `[]` | no |
 | images\_retention\_days | Specifies the number of images retention days. | `number` | `90` | no |
 | images\_retention\_enabled | Specifies whether images retention is enabled (Premium only). | `bool` | `false` | no |
-| location | Azure region to use | `string` | n/a | yes |
-| location\_short | Short string for Azure location | `string` | n/a | yes |
+| location | Azure region to use. | `string` | n/a | yes |
+| location\_short | Short string for Azure location. | `string` | n/a | yes |
 | logs\_categories | Log categories to send to destinations. | `list(string)` | `null` | no |
 | logs\_destinations\_ids | List of destination resources IDs for logs diagnostic destination.<br>Can be `Storage Account`, `Log Analytics Workspace` and `Event Hub`. No more than one of each can be set.<br>If you want to specify an Azure EventHub to send logs and metrics to, you need to provide a formated string with both the EventHub Namespace authorization send ID and the EventHub name (name of the queue to use in the Namespace) separated by the `|` character. | `list(string)` | n/a | yes |
 | logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` | no |
 | logs\_retention\_days | Number of days to keep logs on storage account. | `number` | `30` | no |
 | name\_prefix | Optional prefix for the generated name | `string` | `""` | no |
 | name\_suffix | Optional suffix for the generated name | `string` | `""` | no |
-| resource\_group\_name | Name of the resource group | `string` | n/a | yes |
-| sku | The SKU name of the the container registry. Possible values are Classic (which was previously Basic), Basic, Standard and Premium. | `string` | `"Standard"` | no |
-| stack | Project stack name | `string` | n/a | yes |
+| public\_network\_access\_enabled | Whether the Container Registry is accessible publicly. | `bool` | `true` | no |
+| resource\_group\_name | Name of the resource group. | `string` | n/a | yes |
+| sku | The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`. | `string` | `"Standard"` | no |
+| stack | Project stack name. | `string` | n/a | yes |
 | trust\_policy\_enabled | Specifies whether the trust policy is enabled (Premium only). | `bool` | `false` | no |
 | use\_caf\_naming | Use the Azure CAF naming provider to generate default resource name. `custom_name` override this if set. Legacy default name is used if this is set to `false`. | `bool` | `true` | no |
 
