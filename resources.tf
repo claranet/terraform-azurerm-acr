@@ -65,7 +65,6 @@ resource "azurerm_container_registry" "registry" {
 
   tags = merge(local.default_tags, var.extra_tags)
 
-
   lifecycle {
     precondition {
       condition     = !var.data_endpoint_enabled || var.sku == "Premium"
