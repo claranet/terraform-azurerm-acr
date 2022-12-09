@@ -95,3 +95,9 @@ variable "public_network_access_enabled" {
   type        = bool
   default     = true
 }
+
+variable "data_endpoint_enabled" {
+  description = "Whether to enable dedicated data endpoints for this Container Registry? (Only supported on resources with the Premium SKU)."
+  default     = false
+  type        = bool
+}
