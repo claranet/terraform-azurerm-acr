@@ -1,4 +1,4 @@
-# Unreleased
+# v6.3.0 - 2023-09-29
 
 Added
   * AZ-1153: Bump diagnostic-settings module
