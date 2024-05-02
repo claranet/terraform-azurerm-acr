@@ -79,13 +79,7 @@ variable "trust_policy_enabled" {
 }
 
 variable "allowed_cidrs" {
-  description = "List of CIDRs to allow on the registry."
-  default     = []
-  type        = list(string)
-}
-
-variable "allowed_subnets" {
-  description = "List of VNet/Subnet IDs to allow on the registry."
+  description = "List of CIDRs to allow on the Container Registry."
   default     = []
   type        = list(string)
 }

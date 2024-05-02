@@ -1,19 +1,21 @@
+# Wrapper env herited vars
+
 variable "azure_region" {
-  description = "Azure region to use."
   type        = string
+  description = "Azure region to use."
 }
 
 variable "client_name" {
-  description = "Client name/account used in naming"
   type        = string
+  description = "Client name/account used in naming."
 }
 
 variable "environment" {
-  description = "Project environment"
   type        = string
+  description = "Project environment."
 }
 
 variable "stack" {
-  description = "Project stack name"
   type        = string
+  description = "Project stack name."
 }
