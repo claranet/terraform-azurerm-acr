@@ -29,7 +29,7 @@ variable "client_name" {
 }
 
 variable "sku" {
-  description = "The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`."
+  description = "The SKU name of the the Container Registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`."
   type        = string
   default     = "Standard"
 }
@@ -42,7 +42,7 @@ variable "admin_enabled" {
 
 variable "georeplication_locations" {
   description = <<DESC
-  A list of Azure locations where the Ccontainer Registry should be geo-replicated. Only activated on Premium SKU.
+  A list of Azure locations where the Container Registry should be geo-replicated. Only activated on Premium SKU.
   Supported properties are:
     location                  = string
     zone_redundancy_enabled   = bool
