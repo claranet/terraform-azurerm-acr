@@ -1,5 +1,5 @@
-resource "azurerm_container_registry" "registry" {
-  name = local.acr_name
+resource "azurerm_container_registry" "main" {
+  name = local.name
 
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -11,22 +11,8 @@ resource "azurerm_container_registry" "registry" {
 
   data_endpoint_enabled = var.data_endpoint_enabled
 
-  dynamic "retention_policy" {
-    for_each = var.images_retention_enabled && var.sku == "Premium" ? ["enabled"] : []
-
-    content {
-      enabled = var.images_retention_enabled
-      days    = var.images_retention_days
-    }
-  }
-
-  dynamic "trust_policy" {
-    for_each = var.trust_policy_enabled && var.sku == "Premium" ? ["enabled"] : []
-
-    content {
-      enabled = var.trust_policy_enabled
-    }
-  }
+  retention_policy_in_days = var.sku == "Premium" && var.images_retention_enabled ? var.images_retention_days : null
+  trust_policy_enabled     = var.sku == "Premium" ? var.trust_policy_enabled : false
 
   dynamic "georeplications" {
     for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : []
@@ -40,7 +26,7 @@ resource "azurerm_container_registry" "registry" {
   }
 
   dynamic "network_rule_set" {
-    for_each = length(concat(var.allowed_cidrs, var.allowed_subnets)) > 0 ? ["enabled"] : []
+    for_each = length(var.allowed_cidrs) > 0 ? ["enabled"] : []
 
     content {
       default_action = "Deny"
@@ -50,14 +36,6 @@ resource "azurerm_container_registry" "registry" {
         content {
           action   = "Allow"
           ip_range = ip_rule.value
-        }
-      }
-
-      dynamic "virtual_network" {
-        for_each = var.allowed_subnets
-        content {
-          action    = "Allow"
-          subnet_id = virtual_network.value
         }
       }
     }
@@ -71,4 +49,9 @@ resource "azurerm_container_registry" "registry" {
       error_message = "Premium SKU is mandatory to enable the data endpoints."
     }
   }
+}
+
+moved {
+  from = azurerm_container_registry.registry
+  to   = azurerm_container_registry.main
 }
