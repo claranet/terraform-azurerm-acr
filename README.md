@@ -106,6 +106,7 @@ module "acr" {
 | sku | The SKU name of the the Container Registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`. | `string` | `"Standard"` | no |
 | stack | Project stack name. | `string` | n/a | yes |
 | trust\_policy\_enabled | Specifies whether the trust policy is enabled (Premium only). | `bool` | `false` | no |
+| zone\_redundancy\_enabled | Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to false. (Only supported on resources with the Premium SKU) | `bool` | `false` | no |
 
 ## Outputs
 

@@ -95,3 +95,9 @@ variable "data_endpoint_enabled" {
   default     = false
   type        = bool
 }
+
+variable "zone_redundancy_enabled" {
+  description = "Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to false. (Only supported on resources with the Premium SKU)"
+  default     = false
+  type        = bool
+}

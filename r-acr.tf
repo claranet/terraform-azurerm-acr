@@ -13,6 +13,7 @@ resource "azurerm_container_registry" "main" {
 
   retention_policy_in_days = var.sku == "Premium" && var.images_retention_enabled ? var.images_retention_days : null
   trust_policy_enabled     = var.sku == "Premium" ? var.trust_policy_enabled : false
+  zone_redundancy_enabled  = var.zone_redundancy_enabled
 
   dynamic "georeplications" {
     for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : []
