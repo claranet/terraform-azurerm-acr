@@ -1,3 +1,9 @@
+## 8.1.0 (2024-11-27)
+
+### Features
+
+* **AZ-1485:** add zone_redundancy option 453d7cb
+
 ## 8.0.0 (2024-11-27)
 
 ### ⚠ BREAKING CHANGES
