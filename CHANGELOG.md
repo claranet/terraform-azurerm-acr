@@ -1,3 +1,31 @@
+## 8.0.0 (2024-11-27)
+
+### ⚠ BREAKING CHANGES
+
+* **AZ-1088:** module standardization
+
+### Features
+
+* **AZ-1088:** rework module 2a0ebfb
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.3 951a3ff
+* **deps:** update dependency opentofu to v1.8.4 5a2c98a
+* **deps:** update dependency opentofu to v1.8.6 d55c070
+* **deps:** update dependency pre-commit to v4 ca6592f
+* **deps:** update dependency pre-commit to v4.0.1 16ec59f
+* **deps:** update dependency tflint to v0.54.0 6701ed4
+* **deps:** update dependency trivy to v0.56.0 f2ca96f
+* **deps:** update dependency trivy to v0.56.1 faeba8c
+* **deps:** update dependency trivy to v0.56.2 a99dd4e
+* **deps:** update dependency trivy to v0.57.1 8969638
+* **deps:** update pre-commit hook pre-commit/pre-commit-hooks to v5 f819ca6
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.1.0 f05615a
+* **deps:** update tools 71f7e78
+* prepare for new examples structure 71e58b4
+* update examples structure 9d568e6
+
 ## 7.1.0 (2024-10-03)
 
 ### Features
