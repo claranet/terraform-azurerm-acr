@@ -1,3 +1,39 @@
+## 8.2.0 (2025-04-22)
+
+### Features
+
+* add ACR identity block c7da30d
+
+### Documentation
+
+* 📚️ update outputs and README 2f14275
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.7 1e8f5a6
+* **deps:** update dependency opentofu to v1.8.8 1477f73
+* **deps:** update dependency opentofu to v1.9.0 58dd88a
+* **deps:** update dependency pre-commit to v4.1.0 e1d5ac9
+* **deps:** update dependency pre-commit to v4.2.0 91db998
+* **deps:** update dependency terraform-docs to v0.20.0 55961aa
+* **deps:** update dependency tflint to v0.55.0 809a618
+* **deps:** update dependency tflint to v0.56.0 07d0ba9
+* **deps:** update dependency trivy to v0.58.0 424a264
+* **deps:** update dependency trivy to v0.58.1 7519483
+* **deps:** update dependency trivy to v0.58.2 b54f2e3
+* **deps:** update dependency trivy to v0.59.1 f28f941
+* **deps:** update dependency trivy to v0.60.0 391b1cc
+* **deps:** update dependency trivy to v0.61.0 d363789
+* **deps:** update dependency trivy to v0.61.1 a10d196
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.19.0 ede8294
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.20.0 d284908
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.21.0 b89bf2b
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.22.0 fa746ac
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.0 81a00d2
+* **deps:** update tools 0370a33
+* update Github templates e608395
+* update tflint config for v0.55.0 f42e9bf
+
 ## 8.1.0 (2024-11-27)
 
 ### Features
