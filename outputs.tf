@@ -18,6 +18,11 @@ output "name" {
   value       = azurerm_container_registry.main.name
 }
 
+output "identity_principal_id" {
+  description = "Azure Container Registry system identity principal ID."
+  value       = try(azurerm_container_registry.main.identity[0].principal_id, null)
+}
+
 output "login_server" {
   description = "URL that can be used to log into the Container Registry."
   value       = azurerm_container_registry.main.login_server

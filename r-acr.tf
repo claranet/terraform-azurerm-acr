@@ -15,6 +15,14 @@ resource "azurerm_container_registry" "main" {
   trust_policy_enabled     = var.sku == "Premium" ? var.trust_policy_enabled : false
   zone_redundancy_enabled  = var.zone_redundancy_enabled
 
+  dynamic "identity" {
+    for_each = var.identity[*]
+    content {
+      type         = var.identity.type
+      identity_ids = endswith(var.identity.type, "UserAssigned") ? var.identity.identity_ids : null
+    }
+  }
+
   dynamic "georeplications" {
     for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : []
 
