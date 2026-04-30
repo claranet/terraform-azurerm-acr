@@ -60,27 +60,27 @@ module "acr" {
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | azurecaf | >= 1.2.28 |
 | azurerm | ~> 4.31 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | diagnostics | claranet/diagnostic-settings/azurerm | ~> 8.2.0 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [azurerm_container_registry.main](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry) | resource |
 | [azurecaf_name.acr](https://registry.terraform.io/providers/claranet/azurecaf/latest/docs/data-sources/name) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | admin\_enabled | Whether the admin user is enabled. | `bool` | `false` | no |
 | allowed\_cidrs | List of CIDRs to allow on the Container Registry. | `list(string)` | `[]` | no |
 | azure\_services\_bypass\_allowed | Whether to allow trusted Azure services to access a network restricted Container Registry. | `bool` | `false` | no |
@@ -112,7 +112,7 @@ module "acr" {
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | admin\_password | Password associated with the Container Registry admin account - if the admin account is enabled. |
 | admin\_username | Username associated with the Container Registry admin account - if the admin account is enabled. |
 | fqdn | Azure Container Registry FQDN. |
