@@ -6,6 +6,7 @@ output "id" {
 output "resource" {
   description = "Azure Container Registry resource output."
   value       = azurerm_container_registry.main
+  sensitive   = true
 }
 
 output "module_diagnostics" {
