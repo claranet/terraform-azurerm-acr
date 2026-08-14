@@ -63,13 +63,13 @@ module "acr" {
 | Name | Version |
 | ---- | ------- |
 | azurecaf | >= 1.2.28 |
-| azurerm | ~> 4.31 |
+| azurerm | ~> 5.0 |
 
 ## Modules
 
 | Name | Source | Version |
 | ---- | ------ | ------- |
-| diagnostics | claranet/diagnostic-settings/azurerm | ~> 8.2.0 |
+| diagnostics | claranet/diagnostic-settings/azurerm | ~> 9.0 |
 
 ## Resources
 
@@ -92,7 +92,7 @@ module "acr" {
 | diagnostic\_settings\_custom\_name | Custom name of the diagnostics settings, name will be 'default' if not set. | `string` | `"default"` | no |
 | environment | Project environment. | `string` | n/a | yes |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
-| georeplication\_locations | A list of Azure locations where the Container Registry should be geo-replicated. Only activated on Premium SKU.<br/>  Supported properties are:<br/>    location                  = string<br/>    zone\_redundancy\_enabled   = bool<br/>    regional\_endpoint\_enabled = bool<br/>    tags                      = map(string)<br/>  or this can be a list of `string` (each element is a location) | `any` | `[]` | no |
+| georeplication\_locations | A list of Azure locations where the Container Registry should be geo-replicated. Only activated on Premium SKU.<br/>  Supported properties are:<br/>    location                        = string<br/>    global\_endpoint\_routing\_enabled = bool<br/>    zone\_redundancy\_enabled         = bool<br/>    tags                            = map(string)<br/>  or this can be a list of `string` (each element is a location) | `any` | `[]` | no |
 | identity | Identity block information. | <pre>object({<br/>    type         = optional(string, "SystemAssigned")<br/>    identity_ids = optional(list(string))<br/>  })</pre> | `{}` | no |
 | images\_retention\_days | Specifies the number of images retention days. | `number` | `90` | no |
 | images\_retention\_enabled | Specifies whether images retention is enabled (Premium only). | `bool` | `false` | no |
@@ -107,7 +107,6 @@ module "acr" {
 | resource\_group\_name | Name of the resource group. | `string` | n/a | yes |
 | sku | The SKU name of the the Container Registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`. | `string` | `"Standard"` | no |
 | stack | Project stack name. | `string` | n/a | yes |
-| trust\_policy\_enabled | Specifies whether the trust policy is enabled (Premium only). | `bool` | `false` | no |
 | zone\_redundancy\_enabled | Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to false. (Only supported on resources with the Premium SKU) | `bool` | `false` | no |
 
 ## Outputs

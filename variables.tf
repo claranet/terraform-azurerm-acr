@@ -44,10 +44,10 @@ variable "georeplication_locations" {
   description = <<DESC
   A list of Azure locations where the Container Registry should be geo-replicated. Only activated on Premium SKU.
   Supported properties are:
-    location                  = string
-    zone_redundancy_enabled   = bool
-    regional_endpoint_enabled = bool
-    tags                      = map(string)
+    location                        = string
+    global_endpoint_routing_enabled = bool
+    zone_redundancy_enabled         = bool
+    tags                            = map(string)
   or this can be a list of `string` (each element is a location)
 DESC
   type        = any
@@ -68,12 +68,6 @@ variable "images_retention_days" {
 
 variable "azure_services_bypass_allowed" {
   description = "Whether to allow trusted Azure services to access a network restricted Container Registry."
-  type        = bool
-  default     = false
-}
-
-variable "trust_policy_enabled" {
-  description = "Specifies whether the trust policy is enabled (Premium only)."
   type        = bool
   default     = false
 }
