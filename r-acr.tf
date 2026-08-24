@@ -12,7 +12,6 @@ resource "azurerm_container_registry" "main" {
   data_endpoint_enabled = var.data_endpoint_enabled
 
   retention_policy_in_days = var.sku == "Premium" && var.images_retention_enabled ? var.images_retention_days : null
-  trust_policy_enabled     = var.sku == "Premium" ? var.trust_policy_enabled : false
   zone_redundancy_enabled  = var.zone_redundancy_enabled
 
   dynamic "identity" {
@@ -27,10 +26,10 @@ resource "azurerm_container_registry" "main" {
     for_each = var.georeplication_locations != null && var.sku == "Premium" ? var.georeplication_locations : []
 
     content {
-      location                  = try(georeplications.value.location, georeplications.value)
-      zone_redundancy_enabled   = try(georeplications.value.zone_redundancy_enabled, null)
-      regional_endpoint_enabled = try(georeplications.value.regional_endpoint_enabled, null)
-      tags                      = try(georeplications.value.tags, null)
+      location                        = try(georeplications.value.location, georeplications.value)
+      global_endpoint_routing_enabled = try(georeplications.value.global_endpoint_routing_enabled, true)
+      zone_redundancy_enabled         = try(georeplications.value.zone_redundancy_enabled, null)
+      tags                            = try(georeplications.value.tags, null)
     }
   }
 
