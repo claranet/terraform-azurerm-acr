@@ -1,3 +1,32 @@
+## 9.0.0 (2026-08-24)
+
+### ⚠ BREAKING CHANGES
+
+* **SREAA-368:** - OpenTofu minimum version raised from 1.8 to 1.12.
+- AzureRM provider minimum version raised from ~> 4.31 to ~> 5.0.
+- trust_policy_enabled variable removed (property deleted from AzureRM 5.0,
+  no equivalent replacement).
+- regional_endpoint_enabled removed from georeplications block (property
+  deleted from AzureRM 5.0 schema).
+- global_endpoint_routing_enabled added as required field in georeplications
+  block (new in AzureRM 5.0).
+- diagnostic-settings module bumped from ~> 8.2.0 to ~> 9.0.
+
+### Features
+
+* **SREAA-368:** upgrade module to v9 (OpenTofu >= 1.12, AzureRM ~> 5.0) b607ecf
+
+### Bug Fixes
+
+* **SREAA-368:** align v9 branch with current pipeline and provider constraints ce855a7
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.12.5 8a06e67
+* **deps:** update dependency tflint to v0.64.0 ad2c0ae
+* **SREAA-368:** synchronize committed.toml and AGENTS.md from the ci template 9b6c64b
+* **v9:** 🐛 synchronize common files and docs 67180a8
+
 ## 8.2.5 (2026-07-20)
 
 ### Bug Fixes
