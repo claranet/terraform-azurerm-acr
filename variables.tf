@@ -105,3 +105,15 @@ variable "identity" {
   default  = {}
   nullable = false
 }
+
+variable "role_assignment_mode" {
+  description = "Role assignment mode of the Container Registry. Possible values are `LegacyRegistryPermissions` (registry-wide RBAC roles) and `AbacRepositoryPermissions` (repository-scoped ABAC roles). Registries already switched to ABAC must set `AbacRepositoryPermissions`, otherwise the next apply downgrades them."
+  type        = string
+  default     = "LegacyRegistryPermissions"
+  nullable    = false
+
+  validation {
+    condition     = contains(["LegacyRegistryPermissions", "AbacRepositoryPermissions"], var.role_assignment_mode)
+    error_message = "`role_assignment_mode` must be `LegacyRegistryPermissions` or `AbacRepositoryPermissions`."
+  }
+}

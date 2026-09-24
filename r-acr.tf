@@ -11,6 +11,8 @@ resource "azurerm_container_registry" "main" {
 
   data_endpoint_enabled = var.data_endpoint_enabled
 
+  role_assignment_mode = var.role_assignment_mode
+
   retention_policy_in_days = var.sku == "Premium" && var.images_retention_enabled ? var.images_retention_days : null
   zone_redundancy_enabled  = var.zone_redundancy_enabled
 

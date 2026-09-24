@@ -105,6 +105,7 @@ module "acr" {
 | name\_suffix | Optional suffix for the generated name. | `string` | `""` | no |
 | public\_network\_access\_enabled | Whether the Container Registry is accessible publicly. | `bool` | `true` | no |
 | resource\_group\_name | Name of the resource group. | `string` | n/a | yes |
+| role\_assignment\_mode | Role assignment mode of the Container Registry. Possible values are `LegacyRegistryPermissions` (registry-wide RBAC roles) and `AbacRepositoryPermissions` (repository-scoped ABAC roles). Registries already switched to ABAC must set `AbacRepositoryPermissions`, otherwise the next apply downgrades them. | `string` | `"LegacyRegistryPermissions"` | no |
 | sku | The SKU name of the the Container Registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`. | `string` | `"Standard"` | no |
 | stack | Project stack name. | `string` | n/a | yes |
 | zone\_redundancy\_enabled | Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to false. (Only supported on resources with the Premium SKU) | `bool` | `false` | no |
@@ -122,4 +123,5 @@ module "acr" {
 | module\_diagnostics | Diagnostics Settings module output. |
 | name | Azure Container Registry name. |
 | resource | Azure Container Registry resource output. |
+| role\_assignment\_mode | Role assignment mode of the Container Registry (`LegacyRegistryPermissions` or `AbacRepositoryPermissions`). |
 <!-- END_TF_DOCS -->

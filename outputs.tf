@@ -24,6 +24,11 @@ output "identity_principal_id" {
   value       = try(azurerm_container_registry.main.identity[0].principal_id, null)
 }
 
+output "role_assignment_mode" {
+  description = "Role assignment mode of the Container Registry (`LegacyRegistryPermissions` or `AbacRepositoryPermissions`)."
+  value       = azurerm_container_registry.main.role_assignment_mode
+}
+
 output "login_server" {
   description = "URL that can be used to log into the Container Registry."
   value       = azurerm_container_registry.main.login_server
