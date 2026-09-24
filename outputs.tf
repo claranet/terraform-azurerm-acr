@@ -39,6 +39,11 @@ output "fqdn" {
   value       = azurerm_container_registry.main.login_server
 }
 
+output "data_endpoint_host_names" {
+  description = "Azure Container Registry data endpoint hostnames, when data endpoints are enabled."
+  value       = azurerm_container_registry.main.data_endpoint_host_names
+}
+
 output "admin_username" {
   description = "Username associated with the Container Registry admin account - if the admin account is enabled."
   value       = azurerm_container_registry.main.admin_username

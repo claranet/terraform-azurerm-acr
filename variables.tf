@@ -117,3 +117,31 @@ variable "role_assignment_mode" {
     error_message = "`role_assignment_mode` must be `LegacyRegistryPermissions` or `AbacRepositoryPermissions`."
   }
 }
+
+variable "azuread_authentication_as_arm_policy_enabled" {
+  description = "Whether to use Azure Resource Manager audience token for this Container Registry."
+  type        = bool
+  default     = true
+  nullable    = false
+}
+
+variable "network_rule_bypass_for_tasks_enabled" {
+  description = "Whether to allow Container Registry Tasks to access a network-restricted Container Registry."
+  type        = bool
+  default     = false
+  nullable    = false
+}
+
+variable "quarantine_policy_enabled" {
+  description = "Whether the quarantine policy is enabled (Premium only)."
+  type        = bool
+  default     = false
+  nullable    = false
+}
+
+variable "export_policy_enabled" {
+  description = "Whether the export policy is enabled (Premium only). Can only be disabled when `public_network_access_enabled` is `false`."
+  type        = bool
+  default     = true
+  nullable    = false
+}
