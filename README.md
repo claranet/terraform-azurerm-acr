@@ -85,12 +85,14 @@ module "acr" {
 | admin\_enabled | Whether the admin user is enabled. | `bool` | `false` | no |
 | allowed\_cidrs | List of CIDRs to allow on the Container Registry. | `list(string)` | `[]` | no |
 | azure\_services\_bypass\_allowed | Whether to allow trusted Azure services to access a network restricted Container Registry. | `bool` | `false` | no |
+| azuread\_authentication\_as\_arm\_policy\_enabled | Whether to use Azure Resource Manager audience token for this Container Registry. | `bool` | `true` | no |
 | client\_name | Client name/account used in naming. | `string` | n/a | yes |
 | custom\_name | Custom Azure Container Registry name, generated if not set. | `string` | `""` | no |
 | data\_endpoint\_enabled | Whether to enable dedicated data endpoints for this Container Registry? (Only supported on resources with the Premium SKU). | `bool` | `false` | no |
 | default\_tags\_enabled | Option to enable or disable default tags. | `bool` | `true` | no |
 | diagnostic\_settings\_custom\_name | Custom name of the diagnostics settings, name will be 'default' if not set. | `string` | `"default"` | no |
 | environment | Project environment. | `string` | n/a | yes |
+| export\_policy\_enabled | Whether the export policy is enabled (Premium only). Can only be disabled when `public_network_access_enabled` is `false`. | `bool` | `true` | no |
 | extra\_tags | Additional tags to associate with your Azure Container Registry. | `map(string)` | `{}` | no |
 | georeplication\_locations | A list of Azure locations where the Container Registry should be geo-replicated. Only activated on Premium SKU.<br/>  Supported properties are:<br/>    location                        = string<br/>    global\_endpoint\_routing\_enabled = bool<br/>    zone\_redundancy\_enabled         = bool<br/>    tags                            = map(string)<br/>  or this can be a list of `string` (each element is a location) | `any` | `[]` | no |
 | identity | Identity block information. | <pre>object({<br/>    type         = optional(string, "SystemAssigned")<br/>    identity_ids = optional(list(string))<br/>  })</pre> | `{}` | no |
@@ -103,8 +105,11 @@ module "acr" {
 | logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` | no |
 | name\_prefix | Optional prefix for the generated name. | `string` | `""` | no |
 | name\_suffix | Optional suffix for the generated name. | `string` | `""` | no |
+| network\_rule\_bypass\_for\_tasks\_enabled | Whether to allow Container Registry Tasks to access a network-restricted Container Registry. | `bool` | `false` | no |
 | public\_network\_access\_enabled | Whether the Container Registry is accessible publicly. | `bool` | `true` | no |
+| quarantine\_policy\_enabled | Whether the quarantine policy is enabled (Premium only). | `bool` | `false` | no |
 | resource\_group\_name | Name of the resource group. | `string` | n/a | yes |
+| role\_assignment\_mode | Role assignment mode of the Container Registry. Possible values are `LegacyRegistryPermissions` (registry-wide RBAC roles) and `AbacRepositoryPermissions` (repository-scoped ABAC roles). Registries already switched to ABAC must set `AbacRepositoryPermissions`, otherwise the next apply downgrades them. | `string` | `"LegacyRegistryPermissions"` | no |
 | sku | The SKU name of the the Container Registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`. | `string` | `"Standard"` | no |
 | stack | Project stack name. | `string` | n/a | yes |
 | zone\_redundancy\_enabled | Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to false. (Only supported on resources with the Premium SKU) | `bool` | `false` | no |
@@ -115,6 +120,7 @@ module "acr" {
 | ---- | ----------- |
 | admin\_password | Password associated with the Container Registry admin account - if the admin account is enabled. |
 | admin\_username | Username associated with the Container Registry admin account - if the admin account is enabled. |
+| data\_endpoint\_host\_names | Azure Container Registry data endpoint hostnames, when data endpoints are enabled. |
 | fqdn | Azure Container Registry FQDN. |
 | id | Azure Container Registry ID. |
 | identity\_principal\_id | Azure Container Registry system identity principal ID. |
@@ -122,4 +128,5 @@ module "acr" {
 | module\_diagnostics | Diagnostics Settings module output. |
 | name | Azure Container Registry name. |
 | resource | Azure Container Registry resource output. |
+| role\_assignment\_mode | Role assignment mode of the Container Registry (`LegacyRegistryPermissions` or `AbacRepositoryPermissions`). |
 <!-- END_TF_DOCS -->

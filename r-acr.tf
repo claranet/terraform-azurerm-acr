@@ -11,8 +11,15 @@ resource "azurerm_container_registry" "main" {
 
   data_endpoint_enabled = var.data_endpoint_enabled
 
-  retention_policy_in_days = var.sku == "Premium" && var.images_retention_enabled ? var.images_retention_days : null
-  zone_redundancy_enabled  = var.zone_redundancy_enabled
+  role_assignment_mode = var.role_assignment_mode
+
+  azuread_authentication_as_arm_policy_enabled = var.azuread_authentication_as_arm_policy_enabled
+  network_rule_bypass_for_tasks_enabled        = var.network_rule_bypass_for_tasks_enabled
+
+  retention_policy_in_days  = var.sku == "Premium" && var.images_retention_enabled ? var.images_retention_days : null
+  quarantine_policy_enabled = var.sku == "Premium" ? var.quarantine_policy_enabled : null
+  export_policy_enabled     = var.sku == "Premium" ? var.export_policy_enabled : null
+  zone_redundancy_enabled   = var.zone_redundancy_enabled
 
   dynamic "identity" {
     for_each = var.identity[*]
@@ -55,6 +62,18 @@ resource "azurerm_container_registry" "main" {
     precondition {
       condition     = !var.data_endpoint_enabled || var.sku == "Premium"
       error_message = "Premium SKU is mandatory to enable the data endpoints."
+    }
+    precondition {
+      condition     = !var.quarantine_policy_enabled || var.sku == "Premium"
+      error_message = "Premium SKU is mandatory to enable the quarantine policy."
+    }
+    precondition {
+      condition     = var.export_policy_enabled || var.sku == "Premium"
+      error_message = "Premium SKU is mandatory to disable the export policy."
+    }
+    precondition {
+      condition     = var.export_policy_enabled || !var.public_network_access_enabled
+      error_message = "Export policy can only be disabled when `public_network_access_enabled` is `false`."
     }
   }
 }
