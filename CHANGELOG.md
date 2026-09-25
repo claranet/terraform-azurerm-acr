@@ -1,3 +1,14 @@
+## 9.1.0 (2026-09-25)
+
+### Features
+
+* **AZ-1707:** ✨ add role_assignment_mode variable and output (ABAC repository permissions) a759b8f
+* **AZ-1707:** ✨ expose quarantine/export policies, ARM audience [secure] and tasks bypass 5751f11
+
+### Miscellaneous Chores
+
+* **deps:** ⬆️ update tools 🔗 c07daef
+
 ## 9.0.0 (2026-08-24)
 
 ### ⚠ BREAKING CHANGES
